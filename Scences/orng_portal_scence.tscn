@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://doo3m3g1gp8vw"]
+
+[ext_resource type="Texture2D" uid="uid://bh4hv6p7ck5u3" path="res://Sprites/sp_orng_portal_wall.png" id="1_026pk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5oex"]
+size = Vector2(38, 64)
+
+[node name="orng_portal_scence" type="StaticBody2D"]
+
+[node name="SpOrngPortalWall" type="Sprite2D" parent="."]
+texture = ExtResource("1_026pk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m5oex")

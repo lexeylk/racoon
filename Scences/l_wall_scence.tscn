@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvjti56ryrd4l"]
+
+[ext_resource type="Script" path="res://Scripts/l_wall_scence.gd" id="1_5lh1v"]
+[ext_resource type="Texture2D" uid="uid://bao6dxdmnid78" path="res://Sprites/sp_left_wall.png" id="1_icmqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qed76"]
+size = Vector2(30, 62)
+
+[node name="l_wall_scence" type="StaticBody2D"]
+script = ExtResource("1_5lh1v")
+
+[node name="SpLeftWall" type="Sprite2D" parent="."]
+texture = ExtResource("1_icmqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qed76")
