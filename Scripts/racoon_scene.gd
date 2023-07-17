@@ -1,30 +1,29 @@
 extends CharacterBody2D
 
 const SPEED = 120.0
-const JUMP_VELOCITY = -400.0
-var velocity = Vector2()
+const JUMP__velocity = -400.0
+var _velocity = Vector2()
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var racoon_sprite = get_node("SpRacoon")
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		_velocity.y += gravity * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		_velocity.y = JUMP__velocity
 
 	var direction = global_var.racoon_drct
 	if direction:
-		velocity.x = direction * SPEED
+		_velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		_velocity.x = move_toward(_velocity.x, 0, SPEED)
 
-	set_velocity(velocity)
+	set_velocity(_velocity)
 	set_up_direction(Vector2.UP)
 	move_and_slide()
-	velocity = velocity
-	if velocity.x < 0:
+	if _velocity.x < 0:
 		racoon_sprite.flip_h = true
-	if velocity.x > 0:
+	if _velocity.x > 0:
 		racoon_sprite.flip_h = false
